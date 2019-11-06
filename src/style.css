@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: lightblue;
+}
+.cards {
+  background: white;
+  height: auto;
+  width: 300px;
+  border: 5px pink solid;
+  margin: 15px auto;
+  padding: 5px;
+}
+
+.question,
+.answer {
+  display: none;
+}
+
+.active {
+  display: block;
+}

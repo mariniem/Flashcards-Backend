@@ -1,24 +1,25 @@
 body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 20px;
+  background: lightcoral;
+  width: 100vw;
   justify-content: center;
-  align-items: center;
-  background: lightblue;
+  align-content: center;
 }
-.cards {
+
+section {
+  border: 2px solid lightgray;
+  padding: 10px;
   background: white;
-  height: auto;
   width: 300px;
-  border: 5px pink solid;
-  margin: 15px auto;
-  padding: 5px;
+  margin-bottom: 10px;
 }
 
-.question,
-.answer {
-  display: none;
+[data-js='answer'] {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.active {
-  display: block;
+span {
+  border-bottom: lightcoral 1px solid;
+  cursor: default;
 }

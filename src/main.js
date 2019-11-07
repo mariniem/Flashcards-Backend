@@ -1,35 +1,26 @@
-fetch('http://localhost:3333/cards') // 2 Promisses: then und catch
+fetch('http://localhost:3333/cards')
   .then(res => res.json())
-  //.then(cards => console.log(cards))
-  .then(cards => cards.forEach(showLinks))
-  .catch(err => console.log(err))
+  .then(cards => cards.forEach(createCardElement))
+  .catch(err => console.log('--->', err))
 
-function showLinks(card) {
-  const el = document.createElement('div')
-  el.classList.add('cards')
+function createCardElement(card) {
+  const el = document.createElement('section')
   el.innerHTML = `<h2> ${card.title} </h2>
-  <p class="question" > ${card.question} </p>
-  <p class="answer" > ${card.answer} </p>
-  <button> Show </button>
-`
-  el.href = 'http://localhost:3333/cards/' + card.id
-  el.style.display = 'block'
+  <p hidden data-js="question"> ${card.question} </p>
+  <p hidden data-js="answer"> ${card.answer} </p>
+  <span>Show</span>
+  `
   document.body.appendChild(el)
-
-  const buttons = document.querySelectorAll('button')
-  buttons.forEach(button => button.addEventListener('click', showCards))
-}
-function showCards() {
-  const questions = document.querySelectorAll('.question')
-  questions.forEach(question => question.classList.toggle('active'))
-  const answers = document.querySelectorAll('.answer')
-  answers.forEach(answer => answer.classList.toggle('active'))
+  showCard(el)
 }
 
-// weitere Elemente erzeugen
-// div mit Classe
-// Karte mit Titel und border
-// Klasse interaktiv
-// show bei click auf Show sieht man den Titel und Question und Answer
-// Hide
-// toggle
+function showCard(el) {
+  const questionEl = el.querySelector('[data-js="question"]')
+  const answerEl = el.querySelector('[data-js="answer"]')
+  const button = el.querySelector('span')
+  button.addEventListener('click', () => {
+    questionEl.toggleAttribute('hidden')
+    answerEl.toggleAttribute('hidden')
+    button.textContent = button.textContent === 'Show' ? 'Hide' : 'Show'
+  })
+}

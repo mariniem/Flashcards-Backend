@@ -23,3 +23,22 @@ span {
   border-bottom: lightcoral 1px solid;
   cursor: default;
 }
+
+form {
+  display: grid;
+  gap: 20px;
+  width: 300px;
+  justify-content: center;
+  align-content: center;
+  background: lightcoral;
+  border: solid white 1px;
+  padding: 10px;
+  margin: 20px;
+}
+title {
+}
+question {
+}
+
+answer {
+}

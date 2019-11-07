@@ -8,5 +8,15 @@
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <template id="form-template">
+      <form class="form">
+        <label >Title<input class="title" name="title"></input></label>
+        <label >Question<textarea class="question" name="question"></textarea></label>
+        <label >Answer<textarea class="answer" name="answer"></textarea></label>
+        <button class="button" type="submit"> Submit </button>
+        <p class="feedback"></p>
+      </form>
+    </template>
+  </body>
 </html>
